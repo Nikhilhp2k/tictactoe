@@ -1,5 +1,6 @@
 import './App.css';
 import { Board } from './componets/Board';
+import "./styles/root.scss";
 
 function App() {
   return (
