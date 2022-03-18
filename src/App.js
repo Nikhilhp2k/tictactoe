@@ -20,7 +20,6 @@ function App() {
     return;
     setHistory(prev=>{
       const last=prev[prev.length-1]
-
       const newBoard= last.board.map((square,pos)=>{
         if(pos==position) return last.isNextX?"X":"O";
         return square;
