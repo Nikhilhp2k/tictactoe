@@ -8,12 +8,12 @@ import React,{useState} from 'react';
 import { calculateWinner } from './helpers';
 
 
-
+const NEWGAME=[{board:Array(9).fill(null),isNextX:true}]
 function App() {
-  const [history,setHistory]=new useState([{board:Array(9).fill(null),isNextX:true}])
+  const [history,setHistory]=new useState(NEWGAME)
   const [currentMove,setCurrentMove]=new useState(0)
   const current = history[currentMove]
-  const winner=calculateWinner(current.board)
+  const {winner,winnerSquares}=calculateWinner(current.board)
   console.log(current.board)
   const handleSquareclick=(position)=>{
     if(current.board[position]||winner)
@@ -34,13 +34,20 @@ function App() {
   {
       setCurrentMove(move)
   }
+  const onNewGame=()=>{
+      setHistory(NEWGAME)
+      setCurrentMove(0)
+  }
+  console.log(winnerSquares)
   return (
     <div className="App">
       <header className="App-header">
         <div> 
           <h1>TIC RAC TOEW</h1>
+          <button type='button' onClick={onNewGame}
+          >START NEW GAME</button>
           <StatusMessage winner={winner} current={current}/>
-          <Board board={current.board} handleSquareclick={handleSquareclick} />
+          <Board board={current.board} handleSquareclick={handleSquareclick} winnerSquares={winnerSquares} />
           <History history={history} moveTo={moveTo} currentmove={currentMove}/>          
         </div>
       </header>

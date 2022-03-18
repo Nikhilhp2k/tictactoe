@@ -2,13 +2,15 @@ import React from 'react';
 import Square from './Square';
 import "./Square.style.css";
 
-export const Board = ({board,handleSquareclick}) => {
+export const Board = ({board,handleSquareclick,winnerSquares}) => {
   console.log("board ollage")
-
+  
 
   const rendersquare =(position)=>{
-    console.log(position)
+    const isWinningSquare=winnerSquares.includes(position)
+    console.log( "isWinningSquare"+ isWinningSquare)
     return <Square value={board[position]} 
+    isWinningSquare={isWinningSquare} 
     onClick={()=>{
       console.log("square olage") 
       handleSquareclick(position)
