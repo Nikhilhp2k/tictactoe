@@ -10,7 +10,6 @@ export const StatusMessage =({winner,current}) => {
         {winner &&`winner is ${winner}`}
         {!winner && !noMoveLeft&&`next player is ${current.isNextX?'X':'O'}`}
         {!winner && noMoveLeft && 'X and O had tie'}
-        
     </h2>
   )
 }
