@@ -1,23 +1,36 @@
 import React from 'react';
-import Square from './Square'
+import Square from './Square';
+import "./Square.style.css";
 
-export const Board = () => {
+export const Board = ({board,handleSquareclick}) => {
+  console.log("board ollage")
+
+
+  const rendersquare =(position)=>{
+    console.log(position)
+    return <Square value={board[position]} 
+    onClick={()=>{
+      console.log("square olage") 
+      handleSquareclick(position)
+    }}/>
+
+  }
   return (
     <div>
         <div>
-            <Square value={0}/>
-            <Square value={1}/>
-            <Square value={2}/>
+          {rendersquare(0)}
+          {rendersquare(1)}
+          {rendersquare(2)}
         </div>
         <div>
-            <Square value={3}/>
-            <Square value={4}/>
-            <Square value={5}/>
+          {rendersquare(3)}
+          {rendersquare(4)}
+          {rendersquare(5)}
         </div>
         <div>
-            <Square value={6}/>
-            <Square value={7}/>
-            <Square value={8}/>
+          {rendersquare(6)}
+          {rendersquare(7)}
+          {rendersquare(8)}
         </div>
     </div>
   )
