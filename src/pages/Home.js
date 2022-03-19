@@ -7,25 +7,52 @@ import { useState } from 'react'
 
 export const Home = () => {
     const[input,setInputValue]=useState('')
+    const[result,setResult]=useState(null)
     const onInputChange =(ev) =>{
         setInputValue(ev.target.value)
     
     }
     const onSearch=()=>{
-        console.log(input)
-        fetch(`https://api.tvmaze.com/search/shows?q=${input}`).then(r=>r.json()).then(result=>console.log(result))
+        fetch(`https://api.tvmaze.com/search/shows?q=${input}`).then(r=>r.json()).then(result=>{
+            setResult(result)
+        })
     }
     const onKeyDown=(ev)=>{
         if(ev.keyCode===13)
         {
-            console.log("clicked enter")
             onSearch()
         }
+    }
+    const renderResults = ()=>{
+
+        if(result&&result.length===0)
+        {
+            return(
+                <div> Result not found </div>
+            )
+        }
+        if (result && result.length>0)
+        {
+            return(
+                <div>
+                    {
+                        result.map( item=>{
+                            {console.log(item.show.name)}
+                            <div key={item.show.id}>{item.show.name}dfsfsf</div>
+                        })
+                    }
+                    
+                </div>
+            )
+        }
+
+
     }
   return (
     <MainPageLayout>
         <input type="text" onChange={onInputChange} onKeyDown={onKeyDown} value={input}></input>
         <button type="button" onClick={onSearch}>Search</button>
+        {renderResults()}
     </MainPageLayout>
   )
 }
