@@ -1,6 +1,7 @@
 import React from 'react'
 import MainPageLayout from './MainPageLayout'
 import { useState } from 'react'
+import { apiGet } from '../misc/config'
 
 
 
@@ -13,9 +14,9 @@ export const Home = () => {
     
     }
     const onSearch=()=>{
-        fetch(`https://api.tvmaze.com/search/shows?q=${input}`).then(r=>r.json()).then(result=>{
+        apiGet(`/search/shows?q=${input}`).then(result=>
             setResult(result)
-        })
+        )
     }
     const onKeyDown=(ev)=>{
         if(ev.keyCode===13)
