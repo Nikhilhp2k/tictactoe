@@ -23,30 +23,25 @@ export const Home = () => {
             onSearch()
         }
     }
-    const renderResults = ()=>{
-
-        if(result&&result.length===0)
-        {
-            return(
-                <div> Result not found </div>
+    const renderResults=()=>{
+        if(result&&result.length===0){
+            return (
+                <div>Result not found</div>
             )
         }
-        if (result && result.length>0)
-        {
+        if(result && result.length>0){
             return(
                 <div>
                     {
-                        result.map( item=>{
-                            {console.log(item.show.name)}
-                            <div key={item.show.id}>{item.show.name}dfsfsf</div>
+                        result.map( (item)=>{
+                            return <div key={item.show.id}>{item.show.name}</div>
                         })
                     }
                     
                 </div>
             )
         }
-
-
+        return null
     }
   return (
     <MainPageLayout>
