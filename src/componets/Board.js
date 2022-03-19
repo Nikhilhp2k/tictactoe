@@ -8,7 +8,7 @@ export const Board = ({board,handleSquareclick,winnerSquares}) => {
 
   const rendersquare =(position)=>{
     const isWinningSquare=winnerSquares.includes(position)
-    console.log( "isWinningSquare"+ isWinningSquare)
+    
     return <Square value={board[position]} 
     isWinningSquare={isWinningSquare} 
     onClick={()=>{
