@@ -18,7 +18,7 @@ export const Actorsgrid = ({data}) => {
         gender={person.gender}
         image={person.image?person.image.medium:IMG_NOT_FOUND}
         />
-        ))}
+        ))} 
     
 
     </FlexGrid>
