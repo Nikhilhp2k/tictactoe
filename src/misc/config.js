@@ -1,5 +1,5 @@
 const API_BASE_URL='https://api.tvmaze.com'
 export async function apiGet(queryString){
-   const response= await fetch(`${API_BASE_URL}${queryString}`).then(r=>r.json())
+   const response= await fetch(`${API_BASE_URL}${queryString}`).then(r=>r.json()).catch(()=>{console.log("error")})
    return response
     }
