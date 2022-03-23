@@ -5,6 +5,7 @@ import Details from '../componetsbox/Shows/Details';
 import Seasons from '../componetsbox/Shows/Seasons';
 import ShowMainData from '../componetsbox/Shows/ShowMainData';
 import { apiGet } from '../misc/config';
+import { InfoBlock, ShowPageWrapper } from './Show.styled';
 
 const reducer = (prevState,action)=>
 {
@@ -51,8 +52,6 @@ export const Show = () => {
                 isMounted=false
             }
         },[id])
-        console.log(show)
-
         if(isLoading){
             return <div>Data is being loaded</div>
         }
@@ -64,25 +63,22 @@ export const Show = () => {
         
        
   return (
-      <div>
+      <ShowPageWrapper>
           <ShowMainData image={show.image} name={show.name} rating={show.rating} summary={show.summary} tags={show.genres}  />
 
-          <div>
+          <InfoBlock>
               <h2>Details</h2>
               <Details status={show.status} network={show.network} premiered={show.premiered} />
-          </div>
+          </InfoBlock>
           <div>
               <h2>seasons</h2>
-              {console.log(show._embedded.seasons)}
+              {}
               <Seasons seasons={show._embedded.seasons} />
+              
+              <Casts cast={show._embedded.cast}/>
           </div>
-          <div>
-              <h2>Casts cast={show._embedded.cast}</h2>
-              <Casts/>
-          </div>
-
-      </div>
-
+          </ShowPageWrapper>
+    
   )
 }
 
