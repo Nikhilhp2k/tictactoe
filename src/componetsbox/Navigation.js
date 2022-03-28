@@ -1,19 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
+import { LinkStyled, NavList } from './Navs.styled'
 
 const LINKS=[{to:'/',text:"Home"},{to:'/starred',text:'Starred'}]
 export const Navigation = () => {
   return (
     <div>
-        <ul>
+        <NavList>
             {
                 LINKS.map(item => (
                     <li key={item.to}>
-                        <Link to={item.to}>{item.text}</Link>
+                        <LinkStyled to={item.to} className={item.to===location.pathname?'active':'' }>{item.text}</LinkStyled>
                     </li>
                 ))
             }
-        </ul>
+        </NavList>
         
     </div>
   )

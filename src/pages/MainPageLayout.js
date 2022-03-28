@@ -5,7 +5,7 @@ import Title from '../componetsbox/Title'
 export const MainPageLayout = ({ children }) => {
   return (
     <div>
-        <Title title={"BOX OFFICE"} subtitle={"YOO"}></Title>
+        <Title title={"BOX OFFICE"} subtitle={"YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"}></Title>
         <Navigation/>
         {children}
 
