@@ -14,17 +14,17 @@ export const Starred = () => {
 
 
   useEffect(()=>{
-    console.log(starred)
+    
 
     if(starred && starred.length>0){
       
-      console.log("if condition olage starred"+starred)
+      
 
      const promises=starred.map(showId=>apiGet(`/shows/${showId}`))
      Promise.all(promises)
     .then(apiData => apiData.map(show => ({show})))
      .then(results=>{
-       console.log("promises then olage"+results)
+       
        setShows(results)
        setIsLoading(false)
      }).catch(err=>{
@@ -43,7 +43,7 @@ export const Starred = () => {
 
   },[starred])
 
-  console.log("starred function olagae"+shows)
+  
 
   
   return (

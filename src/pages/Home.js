@@ -15,7 +15,7 @@ export const Home = () => {
     const[input,setInputValue]=useLastQuery()
     const[result,setResult]=useState(null)
     const[searchOption,setSearchOption]=useState('shows')
-    const isSearchOption = searchOption === 'shows';
+    const isShowsSearch = searchOption ==='shows';
    
     const onInputChange =(ev) =>{
         setInputValue(ev.target.value)
@@ -51,35 +51,15 @@ export const Home = () => {
         }
         return null
     }
-    const onRadioChange=(ev)=>{
-        setSearchOption(ev.target.value)
+    const onRadioChange=(env)=>{       
+        setSearchOption(env.target.value)
     }
   return (
     <MainPageLayout>
         <SearchInput type="text" onChange={onInputChange} onKeyDown={onKeyDown} placeholder="Search anything" value={input}/>
         <RadioInputsWrapper>
-        <div>
-        <CustomRadio
-        label="Shoes"
-        checked = {isSearchOption}
-        id="search-shows"  
-        value="shows" 
-        onChange={onRadioChange }
-        />
-        </div>
-
-        <div>
-        <CustomRadio
-        label="Acctors"
-        checked ={!isSearchOption}
-        id="search-actors"  
-        value="people" 
-        onChange={onRadioChange }
-        />
-       
-        
-        </div>
-            
+            <div><CustomRadio id="show-search" value="shows" label="Shows" checked={isShowsSearch} onChange={onRadioChange}/></div>
+            <div><CustomRadio id="actors-search" value="people" label="Actors" checked ={!isShowsSearch} onChange={onRadioChange}/></div>            
         </RadioInputsWrapper>
         <SearchButtonWrapper>
 

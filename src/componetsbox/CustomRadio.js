@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 const RadioWrapper = styled.label`
   display: block;
   position: relative;
@@ -55,12 +56,10 @@ const RadioWrapper = styled.label`
 
 const CustomRadio = ({label,...restProps}) => {
   return (
-    <RadioWrapper htmlFor='restPops.id'>
+    <RadioWrapper htmlFor={restProps.id}>
             {label}
             <input 
             {...restProps} type="radio"
-            
-             
              />
              <span/>
         </RadioWrapper>
