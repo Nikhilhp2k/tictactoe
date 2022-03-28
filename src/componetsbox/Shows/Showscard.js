@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-export const Showscard = ({ id, image, name, summary }) => {
+import { Star } from '../styled';
+export const Showscard = ({ id, image, name, summary ,onStarClick ,isStarred}) => {
     const summaryAsText = summary
       ? `${summary.split(' ').slice(0, 10).join(' ').replace(/<.+?>/g, "")}...`
       : 'No description';
@@ -17,7 +18,10 @@ export const Showscard = ({ id, image, name, summary }) => {
   
         <div>
           <Link to={`/show/${id}`}>Read more</Link>
-          <button type="button">Star me</button>
+          <button type="button" onClick={onStarClick}>
+            <Star active={isStarred}/>
+            
+            </button>
         </div>
       </div>
     );

@@ -4,12 +4,13 @@ import { useState } from 'react'
 import { apiGet } from '../misc/config'
 import { Showsgrid } from '../componetsbox/Shows/Showsgrid'
 import {Actorsgrid} from '../componetsbox/Actors/Actorsgrid'
+import { useLastQuery } from '../misc/custom-hooks'
 
 
 
 
 export const Home = () => {
-    const[input,setInputValue]=useState('')
+    const[input,setInputValue]=useLastQuery( )
     const[result,setResult]=useState(null)
     const[searchOption,setSearchOption]=useState('shows')
     
