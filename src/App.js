@@ -20,10 +20,6 @@ const App = () => {
       <div>
     <Switch>
         
-        <Route exact path="/">
-        <Home/>
-                
-        </Route>
         <Route exact path="/starred">
         <Starred/>
         </Route>
@@ -32,7 +28,8 @@ const App = () => {
           <Show/>
         </Route>
 
-        <Route>The page 404 not found</Route>
+        <Route>        <Home/>
+</Route>
     </Switch>
     </div>
     </ThemeProvider>
